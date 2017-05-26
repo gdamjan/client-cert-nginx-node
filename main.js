@@ -1,10 +1,18 @@
 const express = require('express')
 const app = express()
 
+app.set('trust proxy', 'loopback')
+function recreateUrl(req) {
+   const port = req.headers['x-forwarded-port']
+   return `${req.protocol}://${req.hostname}:${port}${req.originalUrl}`;
+}
+
 app.get('/*', function (req, res) {
+  console.log(req.headers)
+
   const dn = req.get('X-SSL-CLIENT-S-DN')
   const cert = req.get('X-SSL-CLIENT-CERT')
-  const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  const fullUrl = recreateUrl(req)
   res.status(200)
   const out = `\
    dn: ${dn}
