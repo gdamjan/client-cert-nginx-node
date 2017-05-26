@@ -3,8 +3,9 @@ const app = express()
 
 app.set('trust proxy', 'loopback')
 function recreateUrl(req) {
-   const port = req.headers['x-forwarded-port']
-   return `${req.protocol}://${req.hostname}:${port}${req.originalUrl}`;
+   const forwardedPort = req.get('X-Forwarded-Port')
+   const port = forwardedPort ? `:${forwardedPort}` : ''
+   return `${req.protocol}://${req.hostname}${port}${req.originalUrl}`;
 }
 
 app.get('/*', function (req, res) {
