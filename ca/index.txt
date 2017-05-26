@@ -1,0 +1,2 @@
+V	200220145402Z		1000	unknown	/O=XYZ/OU=XYZ sysops/CN=server
+V	200220145456Z		1001	unknown	/O=XYZ/OU=XYZ sysops/CN=client
