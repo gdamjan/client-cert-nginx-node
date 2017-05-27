@@ -1,7 +1,8 @@
 # TLS Client Certificates in node
 
-A nodejs example of client-server https, using client certificates. The node server is behind nginx. nginx already
-requires a client certificate and a valid one.
+A nodejs example of client-server https, using client certificates. The node server is behind nginx.
+
+**NOTE** nginx itself requires and verifies the client certificate.
 
 (as a bonus, there's also the `recreateUrl` function for express behind proxies)
 
