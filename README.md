@@ -1,21 +1,21 @@
-A nodejs example of client-server https, using client certificates. The node server is behind nginx.
+# TLS Client Certificates in node
+
+A nodejs example of client-server https, using client certificates. The node server is behind nginx. nginx already
+requires a client certificate and a valid one.
+
+(as a bonus, there's also the `recreateUrl` function for express behind proxies)
 
 
 # Quick Start
 
 ```
 nginx -c $PWD/nginx.conf
-npm install express
+npm install
 node server.js
 
 curl -ik https://localhost:8443/ --cert ca/certs/client.crt --key ca/private/client.key
 node client.js
 ```
-
-
-# TODO
-
-Handle the `cert` variable that has the whole client certificate in PEM format (it comes from the `x-ssl-client-cert` header).
 
 
 # See also:
@@ -27,3 +27,5 @@ Handle the `cert` variable that has the whole client certificate in PEM format (
 - [https module in nodejs docs](https://nodejs.org/api/https.html)
 - [tls module in nodejs docs](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) for the connect options
   that https.request uses too
+- [x509 node package](https://www.npmjs.com/package/x509)
+- [nginx ssl_verify_client](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_verify_client)

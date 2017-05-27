@@ -1,0 +1,20 @@
+{
+  "name": "client-cert-nginx-node",
+  "version": "0.0.1",
+  "description": "TLS Client Certificates example",
+  "dependencies": {
+    "express": "^4.15.3",
+    "x509": "^0.3.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdamjan/client-cert-nginx-node.git"
+  },
+  "author": "Damjan Georgievski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdamjan/client-cert-nginx-node/issues"
+  },
+  "homepage": "https://github.com/gdamjan/client-cert-nginx-node#readme"
+}

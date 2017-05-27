@@ -1,4 +1,5 @@
 const express = require('express')
+const x509 = require('x509')
 const app = express()
 
 app.set('trust proxy', 'loopback')
@@ -9,11 +10,12 @@ function recreateUrl(req) {
 }
 
 app.get('/*', function (req, res) {
-  console.log(req.headers)
-
   const dn = req.get('X-SSL-CLIENT-S-DN')
-  const cert = req.get('X-SSL-CLIENT-CERT')
+  const client_cert = req.get('X-SSL-CLIENT-CERT').replace(/\t/g,'\n')
+  const cert = x509.parseCert(client_cert)
+  console.log(cert)
   const fullUrl = recreateUrl(req)
+
   res.status(200)
   const out = `\
    dn: ${dn}
