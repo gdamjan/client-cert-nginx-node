@@ -3,9 +3,10 @@
 ```
 nginx -c $PWD/nginx.conf
 npm install express
-node main.js
+node server.js
 
 curl -ik https://localhost:8443/ --cert ca/certs/client.crt --key ca/private/client.key
+node client.js
 ```
 
 
