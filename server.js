@@ -26,5 +26,5 @@ app.get('/*', function (req, res) {
 })
 
 app.listen(3000, function () {
-  console.log('Hello world app!')
+  console.log('send request to the nginx tls port, not nodes!')
 })
